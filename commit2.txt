@@ -1,0 +1,18 @@
+
+// Add this helper at the top
+bool isValidBinary(const std::string &s) {
+    return !s.empty() && std::all_of(s.begin(), s.end(),
+                                     [](char c){ return c == '0' || c == '1'; });
+}
+
+// In main(), replace option 2 handling with:
+} else if (opt == 2) {
+    std::string bin;
+    std::cout << "Enter binary number: ";
+    std::cin >> bin;
+
+    if (!isValidBinary(bin)) {
+        std::cout << "Invalid binary input. Use only 0 and 1.\n";
+    } else {
+        std::cout << "Decimal: " << binaryToDecimal(bin) << '\n';
+    }
