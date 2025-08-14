@@ -1,0 +1,33 @@
+
+    // In main(), replace the if-else chain with:
+switch(opt) {
+    case 1: {
+        unsigned long long dec;
+        std::cout << "Enter decimal number: ";
+        if (!(std::cin >> dec)) {
+            std::cin.clear();
+            std::string skip; std::getline(std::cin, skip);
+            std::cout << "Invalid decimal input.\n";
+            continue;
+        }
+        std::cout << "Binary: " << decimalToBinary(dec) << '\n';
+        break;
+    }
+    case 2: {
+        std::string bin;
+        std::cout << "Enter binary number: ";
+        std::cin >> bin;
+        if (!isValidBinary(bin)) {
+            std::cout << "Invalid binary input. Use only 0 and 1.\n";
+        } else {
+            std::cout << "Decimal: " << binaryToDecimal(bin) << '\n';
+        }
+        break;
+    }
+    case 3:
+        std::cout << "Exiting converter.\n";
+        return 0;
+    default:
+        std::cout << "Invalid option.\n";
+}
+
