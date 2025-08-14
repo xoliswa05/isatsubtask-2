@@ -1,0 +1,7 @@
+// After every result output, pause before continuing
+#include <limits>  // at the top
+
+// After printing result in each case, add:
+std::cout << "Press Enter to continue...";
+std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+std::cin.get();
