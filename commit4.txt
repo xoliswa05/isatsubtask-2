@@ -1,0 +1,34 @@
+// Add this function
+std::string decimalToHex(unsigned long long n) {
+    if (n == 0) return "0";
+    std::string hex;
+    const char* digits = "0123456789ABCDEF";
+    while (n > 0) {
+        hex.push_back(digits[n % 16]);
+        n /= 16;
+    }
+    std::reverse(hex.begin(), hex.end());
+    return hex;
+}
+
+// In menu()
+std::cout << "3) Decimal -> Hexadecimal\n";
+std::cout << "4) Exit\n";
+std::cout << "Choose (1-4): ";
+
+// In switch(opt)
+case 3: {
+    unsigned long long dec;
+    std::cout << "Enter decimal number: ";
+    if (!(std::cin >> dec)) {
+        std::cin.clear();
+        std::string skip; std::getline(std::cin, skip);
+        std::cout << "Invalid decimal input.\n";
+        continue;
+    }
+    std::cout << "Hexadecimal: " << decimalToHex(dec) << '\n';
+    break;
+}
+case 4:
+    std::cout << "Exiting converter.\n";
+    return 0;
